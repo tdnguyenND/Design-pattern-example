@@ -1,3 +1,5 @@
+package strategy;
+
 public class Example {
 
     // === Strategy interface ===
