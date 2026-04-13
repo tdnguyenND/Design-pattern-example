@@ -18,7 +18,15 @@ class ExampleSmokeTest {
         "decorator.Example",
         "composite.Example",
         "strategy.Example",
-        "observer.Example"
+        "observer.Example",
+        "abstractfactory.Example",
+        "prototype.Example",
+        "facade.Example",
+        "proxy.Example",
+        "command.Example",
+        "templatemethod.Example",
+        "state.Example",
+        "chain.Example"
     })
     void mainRunsWithoutException(String className) throws Exception {
         Class<?> clazz = Class.forName(className);
