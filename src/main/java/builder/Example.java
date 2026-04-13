@@ -1,3 +1,5 @@
+package builder;
+
 public class Example {
 
     static class Report {

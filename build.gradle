@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.10.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Run a single pattern example:
+//   gradle runExample -Ppattern=singleton
+//   gradle runExample -Ppattern=factorymethod
+tasks.register('runExample', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    def p = project.findProperty('pattern') ?: 'singleton'
+    mainClass = "${p}.Example"
+}
+
+// Run all pattern examples sequentially
+tasks.register('runAll') {
+    dependsOn classes
+    doLast {
+        def patterns = ['singleton', 'factorymethod', 'builder', 'adapter',
+                         'decorator', 'composite', 'strategy', 'observer']
+        patterns.each { p ->
+            println "\n========== ${p} =========="
+            javaexec {
+                classpath = sourceSets.main.runtimeClasspath
+                mainClass = "${p}.Example"
+            }
+        }
+    }
+}

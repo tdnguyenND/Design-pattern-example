@@ -2,17 +2,35 @@
 
 This repository is a curated set of Java examples for common software design patterns.
 
+## Prerequisites
+
+- Java 17+
+
 ## Structure
 
-Each pattern lives in its own folder at the project root and always contains:
+```
+src/main/java/
+├── singleton/
+├── factorymethod/
+├── builder/
+├── adapter/
+├── decorator/
+├── composite/
+├── strategy/
+└── observer/
+```
+
+Each pattern package contains:
+- `Example.java`: a runnable example with a `main` method.
 - `README.md`: explains the problem, how the pattern works, key roles, and example flow.
-- `Example.java`: a runnable example with a `main` method matching the documentation.
+
+Smoke tests live in `src/test/java/`.
 
 ## Included patterns
 
 ### Creational
 - Singleton (`singleton`)
-- Factory Method (`factory-method`)
+- Factory Method (`factorymethod`)
 - Builder (`builder`)
 
 ### Structural
@@ -24,20 +42,28 @@ Each pattern lives in its own folder at the project root and always contains:
 - Strategy (`strategy`)
 - Observer (`observer`)
 
-## Run one example
-
-Example with Strategy:
+## Build
 
 ```bash
-javac strategy/Example.java
-java -cp strategy Example
+./gradlew build
 ```
+
+## Run one example
+
+```bash
+./gradlew runExample -Ppattern=strategy
+```
+
+Available values for `-Ppattern`: `singleton`, `factorymethod`, `builder`, `adapter`, `decorator`, `composite`, `strategy`, `observer`.
 
 ## Run all examples
 
 ```bash
-for p in adapter builder composite decorator factory-method observer singleton strategy; do
-  javac "$p/Example.java" && java -cp "$p" Example
-  echo "-----"
-done
+./gradlew runAll
+```
+
+## Run tests
+
+```bash
+./gradlew test
 ```

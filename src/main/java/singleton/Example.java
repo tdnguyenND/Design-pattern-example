@@ -1,3 +1,5 @@
+package singleton;
+
 public class Example {
 
     // === Approach 1: Eager initialization (thread-safe, simple) ===

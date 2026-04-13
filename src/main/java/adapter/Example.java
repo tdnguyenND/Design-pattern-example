@@ -1,3 +1,5 @@
+package adapter;
+
 public class Example {
 
     // === Target interface ===
