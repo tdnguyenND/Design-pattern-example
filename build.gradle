@@ -33,8 +33,9 @@ tasks.register('runExample', JavaExec) {
 tasks.register('runAll') {
     dependsOn classes
     doLast {
-        def patterns = ['singleton', 'factorymethod', 'builder', 'adapter',
-                         'decorator', 'composite', 'strategy', 'observer']
+        def patterns = ['singleton', 'factorymethod', 'abstractfactory', 'prototype', 'builder',
+                         'adapter', 'decorator', 'composite', 'facade', 'proxy',
+                         'strategy', 'observer', 'command', 'templatemethod', 'state', 'chain']
         patterns.each { p ->
             println "\n========== ${p} =========="
             javaexec {
